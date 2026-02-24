@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  {{> header}}
+  <title>Cursos</title>
+</head>
+<body>
+  {{> menu}}
+
+  <main class="container">
+    <h1>Cursos</h1>
+
+    <p>Informació actualitzada de la base de dades</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Curs</th>
+          <th>Temàtica</th>
+          <th>Mestre</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each cursos}}
+          <tr>
+            <td>{{nom}}</td>
+            <td>{{tematica}}</td>
+            <td>{{mestre_nom}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </main>
+
+  {{> footer}}
+</body>
+</html>
