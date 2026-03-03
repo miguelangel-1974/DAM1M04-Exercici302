@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  {{> header}}
+  <title>Pel·lícules</title>
+</head>
+<body>
+  {{> menu}}
+
+  <main class="container">
+    <h1>Llistat de Pel·lícules</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Títol</th>
+          <th>Descripció</th>
+          <th>Actors</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each movies}}
+          <tr>
+            <td><strong>{{title}}</strong> ({{release_year}})</td>
+            <td>{{description}}</td>
+            <td>{{actors}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </main>
+
+  {{> footer}}
+</body>
+</html>

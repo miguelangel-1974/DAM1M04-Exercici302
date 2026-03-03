@@ -3,33 +3,33 @@
 <head>
   {{> header}}
   <link rel="stylesheet" href="index.css">
-  <title>Escola programació</title>
+  <title>Sakila Home</title>
 </head>
 <body>
   {{> menu}}
 
   <main class="container">
-    <h1>Escola de programació</h1>
+    <h1>Escola de programació - Sakila</h1>
 
     <section class="cols-2">
       <article class="card">
-        <h2>Cursos</h2>
+        <h2>Movies</h2>
 
         <ul class="list">
-          {{#each cursos}}
+          {{#each movies}}
             <li class="list-item">
               <strong>{{nom}}</strong><br>
-              <span class="muted">{{tematica}}</span>
+              <span class="muted">{{any}} - {{actors}}</span>
             </li>
           {{/each}}
         </ul>
       </article>
 
       <article class="card">
-        <h2>Especialitats</h2>
+        <h2>Categories</h2>
 
         <ul class="list">
-          {{#each especialitats}}
+          {{#each categories}}
             <li class="list-item">
               {{nom}}
             </li>
