@@ -140,7 +140,8 @@ app.get('/customers', async (req, res) => {
 
     // Obtenir les dades de la base de dades
     const customerRows = await db.query(`
-      SELECT c.first_name, c.last_name, c.email, GROUP_CONCAT(f.title SEPARATOR ' || ') as lloguers
+      SELECT c.first_name, c.last_name, c.email,
+        GROUP_CONCAT(f.title SEPARATOR ' || ') as lloguers
       FROM customer c
       LEFT JOIN rental r ON c.customer_id = r.customer_id
       LEFT JOIN inventory i ON r.inventory_id = i.inventory_id
@@ -154,7 +155,10 @@ app.get('/customers', async (req, res) => {
       last_name: 'string',
       email: 'string',
       lloguers: 'string'
-    });
+    }).map(c => ({
+      ...c,
+      lloguers: c.lloguers ? c.lloguers.split(' || ').slice(0, 5).join(' || ') : null
+    }));
 
     // Llegir l'arxiu .json amb dades comunes per a totes les pàgines
     const commonData = JSON.parse(

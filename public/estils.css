@@ -54,3 +54,7 @@ a:active {
   color: #ffaf03;
   text-decoration: none;
 }
+
+.logo img {
+  height: 40px;
+}
